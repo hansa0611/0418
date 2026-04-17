@@ -95,8 +95,15 @@
 <script>
 function startLove() {
     const music = document.getElementById("bgm");
+
     music.volume = 0.4;
-    music.play();
+
+    music.play().then(() => {
+        console.log("🎵 Дуу амжилттай эхэллээ");
+    }).catch(err => {
+        alert("🎵 Хөгжим эхлээгүй. Дахин дарна уу.");
+        console.error(err);
+    });
 
     document.getElementById("playBtn").style.display = "none";
     document.getElementById("message").style.display = "block";
