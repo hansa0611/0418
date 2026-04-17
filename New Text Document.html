@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>2 Жилийн Ойн Мэнд 💖</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            animation: fadeIn 1.5s ease;
+        }
+        h1 {
+            color: #e91e63;
+        }
+        p {
+            color: #444;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+        .play-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            background: #e91e63;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .play-btn:hover {
+            background: #d81b60;
+        }
+        #message {
+            display: none;
+            margin-top: 20px;
+            color: #e91e63;
+            font-weight: bold;
+            animation: fadeIn 1s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>2 Жилийн Ойн Мэнд ❤️</h1>
+
+    <p>
+        Энэ 2 жил миний амьдралын  
+        хамгийн сайхан дурсамжууд байлаа.  
+        Цаашдаа ч хамтдаа инээж, хайрлая 💕
+    </p>
+
+    <!-- 🎵 BACKGROUND MUSIC -->
+    <audio id="bgm" loop>
+        vandebo.mp3
+    </audio>
+
+    <!-- ▶️ START BUTTON -->
+    <button id="playBtn" class="play-btn" onclick="startLove()">
+        🎵 Ая эхлүүлэх
+    </button>
+
+    <!-- 💖 ROMANTIC MESSAGE -->
+    <div id="message">
+        💖 Чамайг энэ хуудсанд орж ирэхэд  
+        бидний аялгуу эхэллээ…
+    </div>
+</div>
+
+<script>
+function startLove() {
+    const music = document.getElementById("bgm");
+    const button = document.getElementById("playBtn");
+    const msg = document.getElementById("message");
+
+    music.volume = 0.4;
+    music.play();
+
+    button.style.display = "none";   // ✅ Button 1 удаа дараад алга болно
+    msg.style.display = "block";     // ✅ Романтик мессеж гарна
+}
+</script>
+
+</body>
+</html>
