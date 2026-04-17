@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="mn">
 <head>
+    <div id="countdown" style="
+    margin-top:25px;
+    padding:15px;
+    border-radius:15px;
+    background:#fff5f7;
+    font-size:18px;
+    color:#d81b60;
+    font-weight:bold;
+">
+    ⏰ Бидний өдрийг хүлээж байна...
+</div>
+
     <meta charset="UTF-8">
     <title>2 Жилийн Ойн Мэнд 💖</title>
     <style>
@@ -98,6 +110,42 @@ function startLove() {
     msg.style.display = "block";     // ✅ Романтик мессеж гарна
 }
 </script>
+<script>
+/*** 🔴 ОЙ БОЛОХ ОГНООГ ЭНД СОЛИНО ***/
+// Жишээ: 2026‑04‑18 00:00
+// Формат: YYYY, MM-1, DD, HH, MM, SS
+const anniversaryDate = new Date(2026, 3, 18, 0, 0, 0);
+// ⚠️ 4 сар → 3 гэж бичдэг!
 
+function updateCountdown() {
+    const now = new Date();
+    const diff = anniversaryDate - now;
+    const box = document.getElementById("countdown");
+
+    if (diff <= 0) {
+        box.innerHTML = "🎉 ӨНӨӨДӨР БИДНИЙ ӨДӨР 💖 2 ЖИЛИЙН ОЙН МЭНД!";
+        return;
+    }
+
+    const totalSeconds = Math.floor(diff / 1000);
+    const days = Math.floor(totalSeconds / (3600 * 24));
+    const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    box.innerHTML = `
+        ⏰ Бидний 2 жилийн ойд <br>
+        ❤️ <b>${days}</b> өдөр
+        <b>${hours}</b> цаг
+        <b>${minutes}</b> минут
+        <b>${seconds}</b> секунд
+        үлдлээ
+    `;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+``
 </body>
 </html>
